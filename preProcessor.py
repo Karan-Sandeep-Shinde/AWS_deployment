@@ -61,7 +61,7 @@ class PreprocessText:
             processedSentList.append(text)
         return processedSentList
     
-processObj = PreprocessText()
-processedSentList = processObj.preprocess()
-print("List of process sentences: \n\n{}".format(processedSentList))
+#processObj = PreprocessText()
+#processedSentList = processObj.preprocess()
+#print("List of process sentences: \n\n{}".format(processedSentList))
         
