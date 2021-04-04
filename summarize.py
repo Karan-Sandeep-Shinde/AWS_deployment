@@ -6,6 +6,7 @@ Created on Sun Mar 28 16:34:33 2021
 """
 import numpy as np
 from preProcessor import PreprocessText
+import json
 import flask
 from flask import Flask , request
 
@@ -13,9 +14,9 @@ SummaryApp = Flask(__name__)
 
 class SummarizeArticle:
     
-    def __init__(self):
+    def __init__(self,article):
         processObj = PreprocessText()
-        self.sentArray = processObj.preprocess()
+        self.sentArray = processObj.preprocess(article)
     
     def groupSentence(self,sentArray):
         
@@ -43,13 +44,21 @@ class SummarizeArticle:
         sortedSentences = self.sortSentences(restSents)
         summary = self.combineSentences(firstSent,sortedSentences)
         return summary
-
-@SummaryApp.route('/home/summary',methods=['GET'])
+#
+#@SummaryApp.route('/home/summary/default',methods=['GET'])
+#def summaryApi():
+#    summaryObj = SummarizeArticle()
+#    summary = summaryObj.summarize()
+#    return summary
+##    print("The summary of article is\n\n{}".format(summary))
+    
+@SummaryApp.route('/home/summary/custom',methods=['POST'])
 def summaryApi():
-    summaryObj = SummarizeArticle()
+    article = json.loads(request.data.decode())["articleText"]
+    summaryObj = SummarizeArticle(article)
     summary = summaryObj.summarize()
     return summary
-#    print("The summary of article is\n\n{}".format(summary))
+##    print("The summary of article is\n\n{}".format(summary))
     
 SummaryApp.run('127.0.0.1',port=8000)
     

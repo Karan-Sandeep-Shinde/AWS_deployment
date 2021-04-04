@@ -50,8 +50,9 @@ class PreprocessText:
         
         return text.lower()
     
-    def preprocess(self):
-        text = self.articleText
+    def preprocess(self,article):
+#        text = self.articleText
+        text = article
         sentences = self.sentTokenize(text)
         processedSentList = []
         for sentence in sentences:
