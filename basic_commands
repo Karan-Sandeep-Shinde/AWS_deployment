@@ -47,3 +47,9 @@ git push origin master
 
 within ec2:
 git clone https://github.com/Karan-Sandeep-Shinde/test_aws.git
+
+
+sudo docker ps -a
+sudo docker images
+sudo docker search ubuntu
+sudo docker pull ubuntu
