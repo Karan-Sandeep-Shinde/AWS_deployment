@@ -6,6 +6,10 @@ Created on Sun Mar 28 16:34:33 2021
 """
 import numpy as np
 from preProcessor import PreprocessText
+import flask
+from flask import Flask , request
+
+SummaryApp = Flask(__name__)
 
 class SummarizeArticle:
     
@@ -39,10 +43,15 @@ class SummarizeArticle:
         sortedSentences = self.sortSentences(restSents)
         summary = self.combineSentences(firstSent,sortedSentences)
         return summary
+
+@SummaryApp.route('/home/summary',methods=['GET'])
+def summaryApi():
+    summaryObj = SummarizeArticle()
+    summary = summaryObj.summarize()
+    return summary
+#    print("The summary of article is\n\n{}".format(summary))
     
-summaryObj = SummarizeArticle()
-summary = summaryObj.summarize()
-print("The summary of article is\n\n{}".format(summary))
+SummaryApp.run('127.0.0.1',port=8000)
     
     
             
