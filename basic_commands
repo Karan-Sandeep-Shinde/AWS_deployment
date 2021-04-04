@@ -1,0 +1,49 @@
+ssh -i karanss02.pem ubuntu@ipaddress (public ipv4 address from aws)
+
+sudo apt-get update   (to update the system whenever you connect to instance for 1st time)
+
+local:-
+how to transfer any file from local system to instance
+(scp -i karanss02.pem (file_name which we want to transfer) ubuntu@ipaddress:/location_of_folder in instance where we want to transfer file)
+scp -i karanss02.pem dummy.txt ubuntu@ipaddress
+
+to_change_ownership of particular folder
+sudo chown username_of_owner:username_of_owner foldername
+
+sudo mkdir folder_name   -> To create directory
+
+ls -l  -> for permission
+
+ctrlx -> to close the command (e.g nano)
+
+sudo apt-get install name_of_file  (to install any library)
+
+nano dummypython.py
+edit the file
+ctrlx
+y
+enter
+
+
+sudo apt-get install python3-pip
+
+pip3 install numpy
+
+git init
+
+.gitignore
+
+git add .
+
+git status
+
+git commit -m "first commit"
+
+git remote add origin https://github.com/Karan-Sandeep-Shinde/test_aws.git
+
+git remote -v
+
+git push origin master
+
+within ec2:
+git clone https://github.com/Karan-Sandeep-Shinde/test_aws.git
