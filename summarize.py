@@ -44,6 +44,10 @@ class SummarizeArticle:
         sortedSentences = self.sortSentences(restSents)
         summary = self.combineSentences(firstSent,sortedSentences)
         return summary
+    
+@app.route('/home',methods=['GET'])
+def printYay():
+    return "Yay!! its working!!!"
 #
 #@SummaryApp.route('/home/summary/default',methods=['GET'])
 #def summaryApi():
