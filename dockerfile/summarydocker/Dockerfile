@@ -11,4 +11,4 @@ RUN cd AWS_deployment
 RUN pip3 install -r AWS_deployment/requirements.txt
 
 
-CMD ["python3","summarize.py"]
+CMD ["python3","AWS_deployment/summarize.py"]
